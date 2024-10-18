@@ -1,0 +1,429 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<RootNamespace>FlyoutFlightRecorder</RootNamespace>
+		<LangVersion>default</LangVersion>
+		<IsPackable>false</IsPackable>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<AssemblyName>FlyoutFlightRecorder</AssemblyName>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp-firstpass">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Assembly-CSharp-firstpass.dll</HintPath>
+		</Reference>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cppcom.rlabrecque.steamworks.net">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2Cppcom.rlabrecque.steamworks.net.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppCrest">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppCrest.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppCrest.Examples">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppCrest.Examples.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppCW.Common">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppCW.Common.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppDynamicSoundController">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppDynamicSoundController.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppExpanse">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppExpanse.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppGPUInstancer">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppGPUInstancer.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppHDRPSamples">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppHDRPSamples.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppHeathen.Core">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppHeathen.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppHeathen.Steamworks">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppHeathen.Steamworks.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppHeathen.Steamworks.Examples">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppHeathen.Steamworks.Examples.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMono.Security">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppMono.Security.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cppmscorlib">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMySql.Data">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppMySql.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppNewtonsoft.Json">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppNewtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppPaintIn3D">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppPaintIn3D.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppPaintIn3D_Editor">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppPaintIn3D_Editor.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppPaintIn3D_Game">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppPaintIn3D_Game.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSimpleFileBrowser.Runtime">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSimpleFileBrowser.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSpaceGraphicsToolkit">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSpaceGraphicsToolkit.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSpaceGraphicsToolkit.Galaxy">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSpaceGraphicsToolkit.Galaxy.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSpaceGraphicsToolkit.Nebula">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSpaceGraphicsToolkit.Nebula.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSpaceGraphicsToolkit.Terrain">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSpaceGraphicsToolkit.Terrain.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Configuration">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Configuration.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Configuration.Install">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Configuration.Install.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Core">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Data">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Drawing">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Drawing.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Numerics">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Numerics.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Runtime.Serialization">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Transactions">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Transactions.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Xml">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Xml.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Xml.Linq">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2CppSystem.Xml.Linq.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cpp__Generated">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Il2Cpp__Generated.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Animation.Rigging">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Animation.Rigging.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Burst">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Burst.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Burst.Unsafe">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Burst.Unsafe.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.InputSystem">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.InputSystem.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.InputSystem.ForUI">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Mathematics">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Mathematics.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.Core.Runtime">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Analytics">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Analytics.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Configuration">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Configuration.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Device">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Device.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Environments.Internal">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Environments.Internal.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Internal">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Internal.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Registration">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Registration.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Scheduler">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Scheduler.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Telemetry">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Telemetry.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Services.Core.Threading">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Threading.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.TextMeshPro">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Timeline">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.Timeline.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.VisualEffectGraph.Runtime">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AccessibilityModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.AccessibilityModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AIModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.AIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AndroidJNIModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.AndroidJNIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AnimationModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.AnimationModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ARModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ARModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AssetBundleModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AudioModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.AudioModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ClothModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ClothModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ClusterInputModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ClusterInputModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ClusterRendererModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ClusterRendererModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ContentLoadModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ContentLoadModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CrashReportingModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.CrashReportingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.DirectorModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.DirectorModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.DSPGraphModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.DSPGraphModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GameCenterModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.GameCenterModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GIModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.GIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GridModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.GridModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.HotReloadModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.HotReloadModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ImageConversionModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ImageConversionModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.IMGUIModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.IMGUIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.InputLegacyModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.InputLegacyModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.InputModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.InputModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.JSONSerializeModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.JSONSerializeModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.LocalizationModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.LocalizationModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.NVIDIAModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.NVIDIAModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ParticleSystemModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ParticleSystemModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PerformanceReportingModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.PerformanceReportingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.Physics2DModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.Physics2DModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PhysicsModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.PhysicsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ProfilerModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ProfilerModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PropertiesModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.PropertiesModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ScreenCaptureModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.ScreenCaptureModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SharedInternalsModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.SharedInternalsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SpriteMaskModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.SpriteMaskModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SpriteShapeModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.SpriteShapeModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.StreamingModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.StreamingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SubstanceModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.SubstanceModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SubsystemsModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.SubsystemsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TerrainModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.TerrainModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TerrainPhysicsModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextCoreFontEngineModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextCoreTextEngineModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextRenderingModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TilemapModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.TilemapModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TLSModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.TLSModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UIElementsModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UIElementsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UIModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UmbraModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UmbraModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityAnalyticsModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityConnectModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityConnectModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityCurlModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityCurlModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityTestProtocolModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestAudioModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestTextureModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestWWWModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VehiclesModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.VehiclesModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VFXModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.VFXModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VideoModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.VideoModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VirtualTexturingModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.VirtualTexturingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VRModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.VRModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.WindModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.WindModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.XRModule">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\Il2CppAssemblies\UnityEngine.XRModule.dll</HintPath>
+		</Reference>
+		<Reference Include="MelonLoader">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\net6\MelonLoader.dll</HintPath>
+		</Reference>
+		<Reference Include="0Harmony">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\net6\0Harmony.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppInterop.Runtime">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppInterop.Common">
+			<HintPath>F:\Program Files\Steam\steamapps\common\Flyout\MelonLoader\net6\Il2CppInterop.Common.dll</HintPath>
+		</Reference>
+
+	</ItemGroup>
+
+	<PropertyGroup>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="Core.cs" />
+	</ItemGroup>
+	
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;F:\Program Files\Steam\steamapps\common\Flyout\Plugins&quot;" />
+	</Target>
+</Project>
