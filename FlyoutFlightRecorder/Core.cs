@@ -66,100 +66,129 @@ namespace FlyoutFlightRecorder
             base.OnInitializeMelon();
         }
 
-        public override void OnUpdate()
+        public override void OnFixedUpdate()
         {
             // Check if the toggle action was performed this frame
             if (toggleRecordingAction.triggered)
             {
-                isRecordingEnabled = !isRecordingEnabled;
-                MelonLogger.Msg($"Recording {(isRecordingEnabled ? "enabled" : "disabled")}.");
+                // Attempt to grab the Craft and Flight objects
+                var craft = UnityEngine.Object.FindObjectOfType<Il2Cpp.Craft>();
 
-                if (isRecordingEnabled)
+                if (craft != null && craft.flight != null)
                 {
-                    // Create a new file with a timestamp in the filename
-                    string timestamp = DateTime.Now.ToString("yyyy-MM-ddTHH-mm-ss");
-                    filePath = Path.Combine(MelonEnvironment.UserDataDirectory, $"FlightData_{timestamp}.csv");
-                    headersWritten = false; // Reset headers flag for new file
+                    // Toggle recording if the Craft and Flight objects are valid
+                    isRecordingEnabled = !isRecordingEnabled;
+                    MelonLogger.Msg($"Recording {(isRecordingEnabled ? "enabled" : "disabled")}.");
+
+                    if (isRecordingEnabled)
+                    {
+                        // Create a new file with a timestamp in the filename
+                        string timestamp = DateTime.Now.ToString("yyyy-MM-ddTHH-mm-ss");
+                        filePath = Path.Combine(MelonEnvironment.UserDataDirectory, $"FlightData_{timestamp}.csv");
+                        headersWritten = false; // Reset headers flag for new file
+                    }
                 }
                 else
                 {
-                    // Hide the ChannelPanel when recording stops
-                    var flightUI = UnityEngine.Object.FindObjectOfType<Il2Cpp.FlightUI>();
-                    if (flightUI != null)
-                    {
-                        var channelObject = flightUI.transform.Find("ChannelPanel");
-                        if (channelObject.gameObject.activeSelf)
-                        {
-                            MelonLogger.Msg("Recording stopped. Hiding ChannelPanel.");
-                            channelObject.gameObject.SetActive(false); // Hide the panel
-                        }
-                    }
+                    MelonLogger.Warning("Unable to enable recording: Craft and Flight object not found.");
                 }
             }
 
             // Only record data if recording is enabled
             if (isRecordingEnabled)
             {
-                // Get the FlightUI object
-                var flightUI = UnityEngine.Object.FindObjectOfType<Il2Cpp.FlightUI>();
-                if (flightUI == null) return; // Make sure it exists
-
-                // Check if the ChannelPanel is active and force it to be active if it's not
-                var channelObject = flightUI.transform.Find("ChannelPanel");
-                if (!channelObject.gameObject.activeSelf)
-                {
-                    MelonLogger.Msg("ChannelPanel is inactive. Forcing it to active.");
-                    channelObject.gameObject.SetActive(true); // Force the panel to be active
-                }
-
-                RecordData(); // Record the data
+                RecordData();
             }
 
-            base.OnUpdate();
+            base.OnFixedUpdate();
+        }
+
+        public override void OnGUI()
+        {
+            if (isRecordingEnabled)
+            {
+                // Create a new GUI style for the recording label
+                GUIStyle style = new GUIStyle();
+                style.fontSize = 24; // Set the font size
+                style.normal.textColor = Color.red; // Set the text color to red
+
+                // Draw the label in the top-left corner
+                GUI.Label(new Rect(10, 10, 200, 50), "RECORDING", style);
+            }
+            base.OnGUI();
         }
 
         private void RecordData()
         {
             try
             {
-                // Get the FlightUI object
-                var flightUI = UnityEngine.Object.FindObjectOfType<Il2Cpp.FlightUI>();
-                if (flightUI == null) return; // Make sure it exists
+                // Grab data directly from the craft
+                var craft = UnityEngine.Object.FindObjectOfType < Il2Cpp.Craft >();
+                var flight = craft.flight;
 
-                // Get the channel panel text
-                var channelContent = flightUI.transform.Find("ChannelPanel/Content");
-
-                var channelComponent = channelContent.GetComponent<Il2CppTMPro.TextMeshProUGUI>();
-                var channelText = channelComponent.text;
-
-                // Split the text into lines
-                string[] lines = channelText.Split('\n');
-
-                // Verify that the extracted text has the expected format
-                if (lines.Length < 2)
-                {
-                    return; // Skip further processing if the text is not in the expected format
-                }
+                // Get the thrust, drag, and lift
+                var thrust = craft.ThrustForce.magnitude;
+                var drag = craft.DragForce.magnitude;
+                var lift = craft.LiftForce.magnitude;
+                var refSize = craft.refSize;
 
                 // Create lists to hold the keys (headers) and values
                 List<string> keys = new List<string> { };
-                List<string> values = new List<string> { };
+                List<float> values = new List<float> { };
 
-                // Parse each line to extract the key and value
-                foreach (string line in lines)
-                {
-                    var parts = line.Split(new[] { ':' }, 2); // Split at the first colon
-                    if (parts.Length == 2)
-                    {
-                        keys.Add(parts[0].Trim()); // Add key (column name)
-                        values.Add(parts[1].Trim()); // Add value
-                    }
-                }
+                // Get data pairs
+                keys.Add("Time"); // Column
+                values.Add(flight.time); // Value
+
+                keys.Add("Altitude"); // Column
+                values.Add(flight.altitude); // Value
+
+                keys.Add("Airspeed"); // Column
+                values.Add(flight.airspeed); // Value
+
+                keys.Add("G"); // Column
+                values.Add(flight.g); // Value
+
+                keys.Add("Mach"); // Column
+                values.Add(flight.mach); // Value
+
+                keys.Add("Turn Rate"); // Column
+                values.Add(flight.turnRate); // Value
+
+                keys.Add("Roll Rate"); // Column
+                values.Add(flight.rollRate); // Value
+
+                keys.Add("Mass"); // Column
+                values.Add(craft.flightData.mass); // Value
+
+                keys.Add("Thrust"); // Column
+                values.Add(thrust); // Value
+
+                keys.Add("Drag"); // Column
+                values.Add(drag); // Value
+
+                keys.Add("Lift"); // Column
+                values.Add(lift); // Value
+
+                keys.Add("Ref Area"); // Column
+                values.Add(refSize); // Value
+
+                keys.Add("Dynamic Pressure"); // Column
+                values.Add(craft.dynamicPressure); // Value
+
+                keys.Add("Alpha"); // Column
+                values.Add(craft.Command.alpha); // Value
+
+                keys.Add("Lift Coeff"); // Column
+                values.Add(lift / (craft.dynamicPressure * refSize)); // Value
+
+                keys.Add("Drag Coeff"); // Column
+                values.Add(drag / (craft.dynamicPressure * refSize)); // Value
 
                 // Write headers only once
                 if (!headersWritten)
                 {
-                    File.AppendAllText(filePath, string.Join(",", keys) + "\n"); // Write header
+                    File.AppendAllText(filePath, string.Join(",", keys) + "\n");
                     headersWritten = true;
                 }
 
