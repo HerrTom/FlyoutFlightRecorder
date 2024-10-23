@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-[assembly: MelonInfo(typeof(FlyoutFlightRecorder.Core), "FlyoutFlightRecorder", "1.0.0", "HerrTom", null)]
+[assembly: MelonInfo(typeof(FlyoutFlightRecorder.Core), "FlyoutFlightRecorder", "1.1.0", "HerrTom", null)]
 [assembly: MelonGame("Stonext Games", "Flyout")]
 
 namespace FlyoutFlightRecorder
@@ -65,35 +65,42 @@ namespace FlyoutFlightRecorder
             MelonLogger.Msg($"FlightUI Recorder started. Press '{toggleRecordingKey}' to toggle recording on or off.");
             base.OnInitializeMelon();
         }
-
-        public override void OnFixedUpdate()
+        private void ToggleRecording()
         {
-            // Check if the toggle action was performed this frame
-            if (toggleRecordingAction.triggered)
+            // Toggle recording if the Craft and Flight objects are valid
+            isRecordingEnabled = !isRecordingEnabled;
+            MelonLogger.Msg($"Recording {(isRecordingEnabled ? "enabled" : "disabled")}.");
+            if (isRecordingEnabled)
             {
+
                 // Attempt to grab the Craft and Flight objects
                 var craft = UnityEngine.Object.FindObjectOfType<Il2Cpp.Craft>();
 
                 if (craft != null && craft.flight != null)
                 {
-                    // Toggle recording if the Craft and Flight objects are valid
-                    isRecordingEnabled = !isRecordingEnabled;
-                    MelonLogger.Msg($"Recording {(isRecordingEnabled ? "enabled" : "disabled")}.");
+                    // Create a new file with a timestamp in the filename
+                    string timestamp = DateTime.Now.ToString("yyyy-MM-ddTHH-mm-ss");
+                    filePath = Path.Combine(MelonEnvironment.UserDataDirectory, $"FlightData_{timestamp}.csv");
+                    headersWritten = false; // Reset headers flag for new file
 
-                    if (isRecordingEnabled)
-                    {
-                        // Create a new file with a timestamp in the filename
-                        string timestamp = DateTime.Now.ToString("yyyy-MM-ddTHH-mm-ss");
-                        filePath = Path.Combine(MelonEnvironment.UserDataDirectory, $"FlightData_{timestamp}.csv");
-                        headersWritten = false; // Reset headers flag for new file
-                    }
                 }
                 else
                 {
                     MelonLogger.Warning("Unable to enable recording: Craft and Flight object not found.");
                 }
             }
-
+        }
+        public override void OnLateUpdate()
+        {
+            // Check if the toggle action was performed this frame
+                if (toggleRecordingAction.WasPerformedThisFrame())
+            {
+                ToggleRecording();
+            }
+            base.OnLateUpdate();
+        }
+        public override void OnFixedUpdate()
+        {
             // Only record data if recording is enabled
             if (isRecordingEnabled)
             {
